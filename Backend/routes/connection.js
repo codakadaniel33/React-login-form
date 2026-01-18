@@ -33,7 +33,7 @@ router.post("/Register", async(req, res) => {
         const hashPassword = await bcrypt.hash(password, 10);
 
         const createUser = await pool.query(
-            "INSERT INTO data (email, password, username) VALUES ($1, $2, $3) RETURNING id, email, username",
+            "INSERT INTO data (email, password, username) VALUES ($1, $2, $3) RETURNING id, email, username, password",
             [email, hashPassword, username]);
     
         // generating token to user
@@ -77,7 +77,8 @@ router.post("/login", async(req, res) => {
             user: { 
                 id: userData.id, 
                 username: userData.username, 
-                email: userData.email 
+                email: userData.email ,
+                password: userData.password
             }
         });
         

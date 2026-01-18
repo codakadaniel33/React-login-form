@@ -54,6 +54,7 @@ const Dashboard = () => {
             <div className='bg-indigo-700 text-white p-4 rounded-lg mb-4'>
               <p><strong>Email:</strong> {user.email}</p>
               <p><strong>Username:</strong> {user.username}</p>
+              <p><strong>password</strong>{user.password}</p>
             </div>
             <button
               onClick={handleLogout}

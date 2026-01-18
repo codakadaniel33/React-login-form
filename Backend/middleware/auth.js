@@ -7,7 +7,7 @@ const protect  = async(req, res, next) => {
         const token = req.cookies.token;
 
         if(!token){
-            return res.status(400).json({message: "No token found"});
+            return res.status(400).json({message: "No token found, not authorized"});
         }
 
         //if token of user now have found
